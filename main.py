@@ -45,7 +45,7 @@ class InvestmentsSchema(ModelSchema):
     date = fields.DateTime(required=True)
 
 
-@app.route('investments', methods=['GET'])
+@app.route('/investments', methods=['GET'])
 @cross_origin()
 def index():
     get_investments = Investments.query.all()
@@ -54,7 +54,7 @@ def index():
     return make_response(jsonify({"investments": investments}))
 
 
-@app.route('investments', methods = ['POST'])
+@app.route('/investments', methods = ['POST'])
 @cross_origin()
 def create_investment():
     data = request.get_json()
@@ -65,7 +65,7 @@ def create_investment():
     return make_response(jsonify({"investments": result}),200)
 
 
-@app.route('investments/<id>', methods = ['DELETE'])
+@app.route('/investments/<id>', methods = ['DELETE'])
 @cross_origin()
 def delete_investment_by_id(id):
     get_investment = Investments.query.get(id)
