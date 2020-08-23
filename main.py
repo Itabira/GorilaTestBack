@@ -6,7 +6,7 @@ from flask_cors import CORS, cross_origin
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI']= 'postgresql+psycopg2://postgres:102030@127.0.0.1:5432/investimentos'
+app.config['SQLALCHEMY_DATABASE_URI']= 'postgresql+psycopg2://odxxzjicrelrqz:f806cd00c1caa79c8b5860718ba813016b52ea64fda3629c575bb2e0ddd8123c@ec2-52-86-116-94.compute-1.amazonaws.com:5432/d4mhk4d2otbeun'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
@@ -33,7 +33,7 @@ class Investments(db.Model):
     def __repr__(self):
         return f"Investments(value = {value}, transaction_type = {transaction_type}, date = {date})"
     
-#db.create_all()
+db.create_all()
 
 class InvestmentsSchema(ModelSchema):
     class Meta(ModelSchema.Meta):
